@@ -1,0 +1,51 @@
+main{
+    height: 100%;
+}
+
+.home{
+   height:100%;
+   width: 100%;
+
+   margin-top:-20dvh;
+   @include flex(column, center, center, 15px);
+   
+   object-fit: cover;
+   h1{
+    font-size: 45px;
+
+    .last_name{
+        color: $alt-color;
+    }
+   }
+
+   p{
+    font-size: 25px;
+   }
+}
+
+footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    padding:10px 20px;
+    z-index: 0;
+    
+
+    @include flex(row,space-between,center,_);
+
+    .social-icons{
+        @include flex(row,_,center, 15px);
+
+        li{
+            font-size: 20px;
+            cursor: pointer;
+            @include smooth(.5s);
+            
+            &:hover{
+                color:$alt-color;
+            }
+        } 
+    }
+
+}

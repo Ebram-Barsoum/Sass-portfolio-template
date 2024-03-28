@@ -1,0 +1,29 @@
+@mixin flex($direction, $justify, $align, $gap){
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap:$gap;
+}
+
+@mixin smooth($time){
+    transition: $time;
+    -webkit-transition: $time;
+    -moz-transition: $time;
+    -ms-transition: $time;
+    -o-transition: $time;
+}
+
+@mixin mobile($width){
+    @media(max-width:$width){
+        @content;
+    }
+}
+
+@mixin bg_image(){
+    background: linear-gradient(#2b2d4281,#2b2d427c),url('../images/bg.jpg');
+    background-size: cover;
+    background-position:center top;
+    text-align: center;
+}

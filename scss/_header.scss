@@ -1,0 +1,129 @@
+@import 'mixins';
+
+header{
+    position: fixed;
+    width: 100%;
+    padding:20px;
+    z-index: 2;
+    @include flex(row, end, center,_);
+
+   ul{
+     li{
+        font-size: 20px;
+     }
+
+    @include flex(row, end, center, 40px)
+   }
+
+   .nav_bar{
+     padding-right:50px;
+      @include mobile(768px){
+         background-color: $main-color;
+         position: fixed;
+         left:0;
+         top:-100%;
+         @include smooth(.5s);
+       }
+
+      .nav_links{
+         @include mobile(768px){
+            height: 100dvh;
+            width: 100dvw;
+            z-index: 2;
+            @include flex(column, center, center, 30px);
+
+            .nav_link{
+               font-size: 30px;
+               font-weight: 300;
+               translate:100% 0;
+               @include smooth(.3s);
+               
+               @include mobile(768px){
+                  @for $i from 1 through 4{
+                     &:nth-child(#{$i}){
+                        transition-delay: ($i*.1)+0s;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      &.open{
+         top:0;
+      }
+
+      &.open .nav_link{
+         translate: 0;
+      }
+   }
+
+   .menu_btn{
+     cursor: pointer;
+     text-align: end;
+     display: none;
+     z-index: 3 !important;
+
+     @include mobile(768px){
+      display:block;
+     }
+
+     .bar-style{
+      width: 30px;
+      height: 3px;
+      background-color: $main-color;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+     }
+
+     .menu_burger{
+      display: block;
+      position: relative;
+       @extend .bar-style;
+       transition:.5s;
+       width: 28px;
+
+       &::before{
+         content:'';
+         position: absolute;
+         width: 100%;
+         top:-7px;
+         left:0;
+
+         @extend .bar-style;
+       }
+
+       &::after{
+         content:'';
+         position: absolute;
+         width: 70%;
+         bottom:-7px;
+         left:0;
+
+         @extend .bar-style;
+       }
+
+       &.open{
+            rotate: (720deg);
+            background-color: transparent;
+
+            &::before{
+               rotate: (45deg);
+               translate: 8px 8px;
+               background-color: #fff;
+            }
+
+            &::after{
+               width: 28px;
+               rotate: (-45deg);
+               translate:8px -7px;
+               background-color: #fff;
+            }
+       }
+      }
+   }
+}
+

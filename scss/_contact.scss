@@ -1,0 +1,24 @@
+.contact{
+    @include flex(column, center,center,30px);
+
+    h1{
+        color:$alt-color;
+    }
+
+    ul{
+        @include flex(row,center,center,30px);
+
+        li{
+            @include flex(row, center, center,10px);
+
+            span:nth-child(2){
+                font-size: 20px;
+            }
+        }
+
+        @include mobile(768px){
+            @include flex(column,center,center,20px);
+        }
+    }
+}
+

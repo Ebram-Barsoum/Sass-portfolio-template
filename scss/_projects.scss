@@ -1,0 +1,84 @@
+@use 'sass:math';
+
+.projects{
+   
+    .title{
+        color: $alt-color;
+        margin-bottom:20px;
+ 
+    }
+
+    .container{
+        background-color: $main-color;
+         min-height: 50dvh;
+       .content{
+        padding:30px 0;
+        width: 95%;
+        margin:0 auto;
+        @include flex(row,center, center, 20px);
+
+        .project{
+            position: relative;
+            width: math.div(80%,3);
+            margin-bottom:15px;
+            cursor: pointer;
+           
+            
+           .info{
+            position:relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+
+            .layout{
+                @include flex(row,center,center,15px);
+                position: absolute;
+                left:0;
+                bottom:-100%;
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(139, 0, 0, 0.718);
+
+                @include smooth(.5s);
+
+                span{
+                    color:#000;
+                    cursor: pointer;
+                    @include smooth(.5s);
+
+                    &:hover{
+                        color:#fff;
+                       
+                    }
+                }
+            }
+            &:hover .layout{
+                bottom:0;
+            }
+           }
+
+            &::after{
+                content:'';
+                width: 100%;
+                height: 4px;
+
+                position: absolute;
+                left:0;
+                bottom:-2px;
+
+                background-color: $alt-color;
+            }
+
+            @include mobile(992px){
+                width: math.div(80%,2);
+            }
+
+            @include mobile(768px){
+                width: 70%;
+            }
+        }
+       }
+    }
+}

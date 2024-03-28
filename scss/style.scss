@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import 'mixins';
+@import 'setUp';
+@import 'header';
+@import 'home';
+@import 'about';
+@import 'projects';
+@import 'contact';
+
+body{
+    background-color: $main-color;
+    color:#fff;
+    height: 100dvh;
+
+    font-family: "Special Elite", system-ui;
+}
+
+a{
+    color:#fff;
+    text-decoration: none;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+
+    &:hover{
+        color:$alt-color;
+    }
+}
+
+ul{
+    list-style: none;
+    li a.active{
+        color: $alt-color;
+    }
+}
+

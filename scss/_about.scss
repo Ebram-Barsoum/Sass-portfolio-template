@@ -1,0 +1,80 @@
+main{
+    width: 100%;
+    height: 100%;
+    @include bg_image();
+    padding-top:50dvh;
+
+    .about{
+         @include flex(column, center,center,15px);
+        .title{
+           margin-bottom:20px;
+           padding:0 20px;
+           width: 60%;
+
+           @include mobile(768px){
+            width: 100%;
+           }
+
+           h2{
+            font-size: 30px;
+            margin-bottom:10px;
+            color: $alt-color;
+           }
+        }
+
+        .experience{
+            width: 100%;
+            min-height: 50dvh;
+            background-color: $main-color;
+            padding:30px 0px;
+            @include flex(column, center, center,10px);
+           
+            h2{
+                color:$alt-color;
+                font-size: 30px;
+                text-transform: uppercase;
+                text-align: start;
+            }
+
+            .work{
+                background-color: #123;
+                margin-top:30px;
+                padding:15px;
+                position: relative;
+                width: auto;
+                @include flex(column, center, start,10px);
+                .duration{
+                    color:$alt-color;
+                }
+
+                .Company{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .position{
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                &::after{
+                   content:'';
+                   position: absolute;
+                   left:0;
+                   bottom:-5px;
+
+                   height: 5px;
+                   width: 100%;
+
+                   background-color: $alt-color;
+                }
+
+                @include mobile(768px){
+                    width: 95%;
+                    margin: 10px auto;
+                }
+            }
+        }
+    }
+}
+
